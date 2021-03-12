@@ -1,5 +1,5 @@
 ---
-- hosts: webservers
+- hosts: localhost
   become: true
   become_user: root
   tasks:
@@ -16,7 +16,7 @@
       name=git
       state=present
   - name: get the dockerfile from githib
-    git: repo=https://github.com/swethanama/Devopsproject.git dest=/tmp/gitrepo
+    git: repo=https://github.com/Vivarsh/Devopsproject.git dest=/tmp/gitrepo
   - name: build dockerfile
     command: chdir=/tmp/gitrepo docker build -t projectimage:ansible .
   - name: Run the dockerfile
